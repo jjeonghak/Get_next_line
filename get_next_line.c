@@ -11,7 +11,7 @@
 /* ************************************************************************** */
 
 #include "get_next_line.h"
-//#include<stdio.h>
+
 static char	*ft_split_line(char **save_buf)
 {
 	size_t		cnt;
