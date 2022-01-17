@@ -12,7 +12,7 @@
 
 #include "get_next_line_bonus.h"
 
-void	ft_strswap(char **s1, char **s2)
+static void	ft_strswap(char **s1, char **s2)
 {
 	free(*s1);
 	*s1 = ft_strdup(*s2);
