@@ -6,7 +6,7 @@
 /*   By: jeonghak <rlawjdgks318@naver.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/29 14:26:33 by jeonghak          #+#    #+#             */
-/*   Updated: 2022/01/01 13:19:17 by jeonghak         ###   ########.fr       */
+/*   Updated: 2022/01/17 14:20:20 by jeonghak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -16,7 +16,6 @@
 # include<stdlib.h>
 # include<unistd.h>
 # include<fcntl.h>
-# include<limits.h>
 
 void	*ft_memcpy(void *dst, const void *src, size_t n);
 char	*get_next_line(int fd);

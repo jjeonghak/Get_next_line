@@ -6,11 +6,19 @@
 /*   By: jeonghak <rlawjdgks318@naver.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/29 14:26:43 by jeonghak          #+#    #+#             */
-/*   Updated: 2022/01/01 14:06:19 by jeonghak         ###   ########.fr       */
+/*   Updated: 2022/01/17 14:25:42 by jeonghak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line_bonus.h"
+
+void	ft_strswap(char **s1, char **s2)
+{
+	free(*s1);
+	*s1 = ft_strdup(*s2);
+	free(*s2);
+	return ;
+}
 
 static char	*ft_split_line(char **save_buf)
 {
@@ -19,8 +27,6 @@ static char	*ft_split_line(char **save_buf)
 	char		*suffix;
 
 	cnt = 0;
-	if (*save_buf == NULL)
-		return (NULL);
 	while (*(*save_buf + cnt) != '\0' && *(*save_buf + cnt) != '\n')
 		cnt++;
 	if (*(*save_buf + cnt) == '\n')
@@ -32,12 +38,14 @@ static char	*ft_split_line(char **save_buf)
 	*(prefix + cnt) = '\0';
 	if (*(*save_buf + cnt) != '\0')
 	{
-		suffix = ft_strdup(*save_buf + cnt + 1);
-		free(*save_buf);
-		*save_buf = suffix;
+		suffix = ft_strdup(*save_buf + cnt);
+		ft_strswap(save_buf, &suffix);
 	}
 	else
+	{
 		free(*save_buf);
+		*save_buf = NULL;
+	}
 	return (prefix);
 }
 
@@ -50,7 +58,7 @@ char	*get_next_line(int fd)
 
 	if (save_buf[fd] == NULL)
 		save_buf[fd] = ft_strdup("");
-	if (fd > 0 && BUFFER_SIZE > 0)
+	if (fd > 0 && BUFFER_SIZE > 0 && save_buf[fd] != NULL)
 	{
 		while (!ft_strchr(save_buf[fd], '\n'))
 		{
@@ -59,12 +67,12 @@ char	*get_next_line(int fd)
 				break ;
 			buf[page] = '\0';
 			temp = ft_strjoin(save_buf[fd], buf);
-			free(save_buf[fd]);
-			save_buf[fd] = temp;
+			ft_strswap(&save_buf[fd], &temp);
 		}
 		if (*save_buf[fd] != '\0')
 			return (ft_split_line(&save_buf[fd]));
 	}
 	free(save_buf[fd]);
+	save_buf[fd] = NULL;
 	return (NULL);
 }

@@ -6,11 +6,19 @@
 /*   By: jeonghak <rlawjdgks318@naver.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/29 14:26:43 by jeonghak          #+#    #+#             */
-/*   Updated: 2022/01/02 16:29:58 by jeonghak         ###   ########.fr       */
+/*   Updated: 2022/01/17 14:15:10 by jeonghak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "get_next_line.h"
+
+void	ft_strswap(char **s1, char **s2)
+{
+	free(*s1);
+	*s1 = ft_strdup(*s2);
+	free(*s2);
+	return ;
+}
 
 static char	*ft_split_line(char **save_buf)
 {
@@ -31,12 +39,7 @@ static char	*ft_split_line(char **save_buf)
 	if (*(*save_buf + cnt) != '\0')
 	{
 		suffix = ft_strdup(*save_buf + cnt);
-		free(*save_buf);
-		if (suffix == NULL)
-			return (NULL);
-		*save_buf = ft_strdup(suffix);
-		free(suffix);
-		suffix = NULL;
+		ft_strswap(save_buf, &suffix);
 	}
 	else
 	{
@@ -64,13 +67,12 @@ char	*get_next_line(int fd)
 				break ;
 			buf[page] = '\0';
 			temp = ft_strjoin(save_buf, buf);
-			free(save_buf);
-			save_buf = ft_strdup(temp);
-			free(temp);
+			ft_strswap(&save_buf, &temp);
 		}
 		if (*save_buf != '\0')
 			return (ft_split_line(&save_buf));
 	}
 	free(save_buf);
+	save_buf = NULL;
 	return (NULL);
 }
