@@ -2,11 +2,14 @@
 
 ##### Reading a line on a fd is way too tedious
 
+개행으로 끝나는 한줄 반환 함수
+
 **이 프로젝트의 목적은 파일 디스크립터로부터 읽혀진, 개행으로 끝나는 한 줄을 반환하는 함수를 코드화 하는 것입니다.**
 
 <br>
 
 ## Info
+
 - #### _int	open(const char *filepath, int flag, mode_t mode)_
     include<fcntl.h>
     
@@ -90,7 +93,7 @@
 ##### 5.	ft_strchr : 문자열 내에서 원하는 인덱스 값이 존재하는 주소 반환
 ##### 6.	ft_memcpy : 한 주소의 인덱스 값을 다른 주소에 선택한 구간만큼 저장
 ##### 7.	ft_strdup : 멜록을 이용해 원하는 문자열의 크기만큼 메모리를 할당 후 복사
-    	    호출한 후 메모리 해제(free) 필수
+    	    	호출한 후 메모리 해제(free) 필수
 ##### 8.	ft_strjoin : 멜록을 이용해 메모리 할당 후 문자열 두개를 이어서 하나의 문자열 반환
 	        호출한 후 메모리 해제(free) 필수
 
