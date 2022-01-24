@@ -58,7 +58,7 @@ char	*get_next_line(int fd)
 
 	if (save_buf[fd] == NULL)
 		save_buf[fd] = ft_strdup("");
-	if (fd > 0 && BUFFER_SIZE > 0 && save_buf[fd] != NULL)
+	if (fd >= 0 && BUFFER_SIZE > 0 && save_buf[fd] != NULL)
 	{
 		while (!ft_strchr(save_buf[fd], '\n'))
 		{
