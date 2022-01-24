@@ -8,13 +8,11 @@
 
 ## Info
 - #### _int	open(const char *filepath, int flag, mode_t mode)_
-/* include<fcntl.h> */
-/* filepath : 파일경로, flag : 파일열기 옵션, mode : 파일권한(O_CREAT 사용시 필수) */
-/* flag : 파일열기 옵션 */
-/* O_RDONLY : 읽기모드, O_WRONLY : 쓰기모드, O_RDWR : 읽기/쓰기모드, O_CREAT : 파일생성, O_TRUNC : 파일 초기화, 
-O_APPEND : 기존 파일의 맨 끝부터 이어쓰기, O_EXCL : O_CREAT와 함께 사용, 기존 파일 존재시 에러 리턴 */
-/* mode_t mode default value : file - 0666, directory - 0777 */
-/* return value : 성공시 0, 실패시 -1 */
+    include<fcntl.h>
+    filepath : 파일경로, flag : 파일열기 옵션, mode : 파일권한(O_CREAT 사용시 필수)
+    O_RDONLY : 읽기모드, O_WRONLY : 쓰기모드, O_RDWR : 읽기/쓰기모드, O_CREAT : 파일생성, O_TRUNC : 파일 초기화, O_APPEND : 기존 파일의 맨 끝부터 이어쓰기, O_EXCL : O_CREAT와 함께 사용, 기존 파일 존재시 에러 리턴
+    mode_t mode default value : file - 0666, directory - 0777
+    return value : 성공시 0, 실패시 -1
 
 - #### _ssize_t	read(int fd, void *buf, size_t n)_
 /* include<unistd.h> */
