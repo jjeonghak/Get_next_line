@@ -37,9 +37,11 @@
     
     커널 구조체 중 struct files_struct의 struct file fd_array란 배열 존재
 
-    fd_array는 각각 file 구조체의 f_dentry(directory entry)를 가리킴, f_dentry : linux에서 디렉토리에 접근을 빠르게 하기 위한 구조체
+    fd_array는 각각 file 구조체의 f_dentry(directory entry)를 가리킴
     
-    f_dentry는 관련된 inode 구조체를 가리키는 필드 포함, inode : 파일종류와 권한, lock 목록 포안터, 여러 파일 오퍼레이션과 다양한 파일 속성등
+    f_dentry : linux에서 디렉토리에 접근을 빠르게 하기 위한 구조체, 관련된 inode 구조체를 가리키는 필드 포함
+    
+    inode : 파일종류와 권한, lock 목록 포안터, 여러 파일 오퍼레이션과 다양한 파일 속성등
     
     POSIX 표준 STDIN_FILENO : 0, STDOUT_FILENO : 1, STDERR_FILENO : 2
 
