@@ -8,7 +8,7 @@
 
 <br>
 
-## Info
+## Information
 
 - #### _int	open(const char *filepath, int flag, mode_t mode)_
     include<fcntl.h>
