@@ -28,7 +28,7 @@
     
     실패시 -1, 정상적으로 실행됐다면 읽어들인 바이트 반환
 
-- #### _fd(File Descriptor), value : 0 ~ OPEN_MAX(플랫폼마다 상이, mac = 2560)_
+- #### _fd(File Descriptor), value : 0 ~ OPEN_MAX(mac = 2560)_
     linux의 시스템에서 프로세스가 파일을 다룰 때 사용하는 추상적인 값 또는 테이블 인덱스
     
     프로세스에 의해 파일을 open하면 커널은 해당 프로세스 fd 중 사용하지 않는 가장 작은 값 할당
