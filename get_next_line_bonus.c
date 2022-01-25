@@ -6,7 +6,7 @@
 /*   By: jeonghak <rlawjdgks318@naver.com>          +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2021/12/29 14:26:43 by jeonghak          #+#    #+#             */
-/*   Updated: 2022/01/17 14:25:42 by jeonghak         ###   ########.fr       */
+/*   Updated: 2022/01/24 18:00:15 by jeonghak         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,7 +56,7 @@ char	*get_next_line(int fd)
 	char		buf[BUFFER_SIZE + 1];
 	static char	*save_buf[OPEN_MAX];
 
-	if (save_buf[fd] == NULL)
+	if (fd >= 0 && save_buf[fd] == NULL)
 		save_buf[fd] = ft_strdup("");
 	if (fd >= 0 && BUFFER_SIZE > 0 && save_buf[fd] != NULL)
 	{
@@ -71,8 +71,8 @@ char	*get_next_line(int fd)
 		}
 		if (*save_buf[fd] != '\0')
 			return (ft_split_line(&save_buf[fd]));
+		free(save_buf[fd]);
+		save_buf[fd] = NULL;
 	}
-	free(save_buf[fd]);
-	save_buf[fd] = NULL;
 	return (NULL);
 }
